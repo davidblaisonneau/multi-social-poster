@@ -10,9 +10,9 @@ on:
     inputs:
       name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: 'Message to post'
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: 'This is the new message to post on'
         # Input has to be provided for the workflow to run
         required: true
 
@@ -26,7 +26,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v3
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
-    - name: list local files
-      run: ls -al
+    - name: get date
+      run: export date=2022-12-03
+      # run: export date=$(date +%Y-%m-%d)
+    - name: list local _posts
+      run: export files=$(ls _posts/${date}-*.md)
+    - name: echo local _posts files
+      run: echo "$files"
