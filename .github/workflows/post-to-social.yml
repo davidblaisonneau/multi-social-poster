@@ -30,6 +30,6 @@ jobs:
       run: echo "date=2022-12-03" >> $GITHUB_ENV
       # run: echo "date=$(date +%Y-%m-%d)" >> $GITHUB_ENV
     - name: list local _posts
-      run: echo "files=$(ls _posts/${date}-*.md)" >> $GITHUB_ENV"
+      run: echo "files=$(ls _posts/${date}-*.md)" >> $GITHUB_ENV
     - name: echo local _posts files
       run: echo "$files"
