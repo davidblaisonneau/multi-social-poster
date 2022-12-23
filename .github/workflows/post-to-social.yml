@@ -27,9 +27,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: get date
-      run: export date=2022-12-03
-      # run: export date=$(date +%Y-%m-%d)
+      run: echo "date=2022-12-03" >> $GITHUB_ENV
+      # run: echo "date=$(date +%Y-%m-%d)" >> $GITHUB_ENV
     - name: list local _posts
-      run: export files=$(ls _posts/${date}-*.md)
+      run: echo "files=$(ls _posts/${date}-*.md)" >> $GITHUB_ENV"
     - name: echo local _posts files
       run: echo "$files"
